@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All users</title>
+</head>
+<body>
+
+<div>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>email</th>
+            <th>role</th>
+        </tr>
+        <tr th:if="${listUsers.isEmpty()}">
+            <td colspan="2"> No users Available </td>
+        </tr>
+        <tr th:each = "user : ${listUsers}">
+            <td><span th:text="${user.userId}">id</span></td>
+            <td><span th:text ="${user.firstname}">firstname</span></td>
+            <td><span th:text ="${user.lastname}">lastName</span></td>
+            <td><span th:text ="${user.email}">email</span></td>
+            <td><span th:text ="${user.roles}">role</span></td>
+            <td><a th:href="@{/admin/edit/{id}(id=${user.userId})}">Edit</a></td>
+            <td><a th:href="@{/admin/delete/{id}(id=${user.userId})}">Delete</a></td>
+        </tr>
+    </table>
+    <a th:href="@{/admin/save}">Create new user</a>
+</div>
+
+
+</body>
+</html>

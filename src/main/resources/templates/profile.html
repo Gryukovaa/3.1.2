@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>id</th>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>email</th>
+    </tr>
+    <tr>
+        <td><span th:text="${findedUser.userId}">id</span></td>
+        <td><span th:text ="${findedUser.firstname}">firstname</span></td>
+        <td><span th:text ="${findedUser.lastname}">lastName</span></td>
+        <td><span th:text ="${findedUser.email}">email</span></td>
+        <td><span th:text ="${findedUser.roles}">role</span></td>
+<!--        <td><a th:href="@{/users/edit/{id}(id=${key.id})}">Edit</a></td>-->
+<!--        <td><a th:href="@{/users/delete/{id}(id=${key.id})}">Delete</a></td>-->
+    </tr>
+</table>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="LOGOUT"/>
+</form>
+</body>
+</html>
